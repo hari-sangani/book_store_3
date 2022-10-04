@@ -1,9 +1,10 @@
 Rails.application.routes.draw do
+  devise_for :admin_users, ActiveAdmin::Devise.config
+  ActiveAdmin.routes(self)
   devise_for :users
   resources :wishlists
   resources :carts
   resources :orders
-  resources :users
   resources :books
   resources :publishers
   resources :authors

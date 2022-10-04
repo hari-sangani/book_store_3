@@ -45,8 +45,11 @@ gem "bootsnap", require: false
 # Use devise for user login authentication
 gem "devise"
 
+# Use active-admin for admin login and handle website
+gem "activeadmin"
+
 # Use Sass to process CSS
-# gem "sassc-rails"
+gem "sassc-rails"
 
 # Use Active Storage variants [https://guides.rubyonrails.org/active_storage_overview.html#transforming-images]
 # gem "image_processing", "~> 1.2"
