@@ -9,11 +9,14 @@
             </div>
             <div class="col-lg-6 text-end text-lg-right">
               <ul class="menu list-inline mb-0">
-                <li class="list-inline-item"><%= link_to "Login", new_user_session_path %></li>
+                <% if user_signed_in? %>
+                  <li class="list-inline-item">Welcome, <%= current_user.name %></li>
+                  <li class="list-inline-item"><%= link_to "Logout", destroy_user_session_path, method: :delete %></li>
+                <% else %>
+                  <li class="list-inline-item"><%= link_to "Login", new_user_session_path %></li>
+                <% end %>
                 <li class="list-inline-item"><%= link_to "Contact", pages_contact_path %></li>
-                <li class="list-inline-item">
-                  <a href="customer_account.html">Account</a>
-                </li>
+                <li class="list-inline-item"><%= link_to "Account", edit_user_registration_path %></li>
               </ul>
             </div>
           </div>
@@ -70,16 +73,19 @@
               </form>
             </div>
             <div id="wishlist-overview" class="me-3">
-              <%= link_to "Wish", wishlists_path, :class => "btn btn-primary navbar-btn" %>
+              <%= link_to wishlists_path, :class => "btn btn-primary navbar-btn" do %>
+                <i class="fa fa-heart"></i>
+              <% end %>
               <%# <a href="wishlist.html" class="btn btn-primary navbar-btn"
                 ><i class="fa fa-heart"></i
               ></a> %>
             </div>
             <div id="basket-overview">
+              <%= link_to carts_path, :class => "btn btn-primary navbar-btn" do %>
                 <i class="fa fa-shopping-cart"></i>
-              <%= link_to "Cart", carts_path, :class => "btn btn-primary navbar-btn" %>
+              <% end %>
               <%# <a href="basket.html" class="btn btn-primary navbar-btn">
-              </a> %>
+              <i class="fa fa-shopping-cart"></i></a> %>
             </div>
           </div>
         </div>
