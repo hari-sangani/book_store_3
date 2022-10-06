@@ -27,7 +27,7 @@
       <!-- *** Navigavtion Bar *** -->
       <nav class="navbar navbar-expand-lg">
         <div class="container">
-          <%= link_to "BoOkStoRE", pages_home_path, :class => "navbar-brand" %>
+          <%= link_to "BoOkStoRE", pages_home_path, class: "navbar-brand" %>
           <%# <a class="navbar-brand" href="index.html">BoOkStoRE</a> %>
           <button
             class="navbar-toggler"
@@ -44,15 +44,15 @@
           <div class="collapse navbar-collapse" id="navbarContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
               <li class="nav-item">
-                <%= link_to "Home", pages_home_path, :class => "nav-link" %>
+                <%= link_to "Home", pages_home_path, class: "nav-link" %>
                 <%# <a href="index.html" class="nav-link">Home</a> %>
               </li>
               <li class="nav-item">
-                <%= link_to "Books", books_path, :class => "nav-link" %>
+                <%= link_to "Books", books_path, class: "nav-link" %>
                 <%# <a href="list.html" class="nav-link">Books</a> %>
               </li>
               <li class="nav-item">
-                <%= link_to "About", pages_about_path, :class => "nav-link" %>
+                <%= link_to "About", pages_about_path, class: "nav-link" %>
                 <%# <a href="about_us.html" class="nav-link">About Us</a> %>
               </li>
             </ul>
@@ -73,7 +73,7 @@
               </form>
             </div>
             <div id="wishlist-overview" class="me-3">
-              <%= link_to wishlists_path, :class => "btn btn-primary navbar-btn" do %>
+              <%= link_to wishlists_path, class: "btn btn-primary navbar-btn" do %>
                 <i class="fa fa-heart"></i>
               <% end %>
               <%# <a href="wishlist.html" class="btn btn-primary navbar-btn"
@@ -81,7 +81,7 @@
               ></a> %>
             </div>
             <div id="basket-overview">
-              <%= link_to carts_path, :class => "btn btn-primary navbar-btn" do %>
+              <%= link_to carts_path, class: "btn btn-primary navbar-btn" do %>
                 <i class="fa fa-shopping-cart"></i>
               <% end %>
               <%# <a href="basket.html" class="btn btn-primary navbar-btn">
