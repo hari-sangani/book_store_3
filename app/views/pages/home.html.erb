@@ -1,0 +1,202 @@
+<!--
+    *** MAIN SECTION ***
+    ___________________________________________
+    -->
+<div id="all">
+  <div id="content">
+    <div class="container">
+      <!-- *** Slide *** -->
+      <div
+            id="carouselIndicators"
+            class="carousel slide"
+            data-bs-ride="true"
+          >
+        <div class="carousel-indicators">
+          <button
+                type="button"
+                data-bs-target="#carouselIndicators"
+                data-bs-slide-to="0"
+                class="active"
+              ></button>
+          <button
+                type="button"
+                data-bs-target="#carouselIndicators"
+                data-bs-slide-to="1"
+              ></button>
+          <button
+                type="button"
+                data-bs-target="#carouselIndicators"
+                data-bs-slide-to="2"
+              ></button>
+        </div>
+        <div class="carousel-inner">
+          <div class="carousel-item active" data-bs-interval="2000">
+            <%= image_tag "main-slider1", :class => "d-block w-100" %>
+            <%# <img
+                  src="images/main-slider1.jpg"
+                  class="d-block w-100"
+                  alt="img-fluid"
+                /> %>
+          </div>
+          <div class="carousel-item" data-bs-interval="2000">
+            <%= image_tag "main-slider2", :class => "d-block w-100" %>
+            <%# <img
+                  src="images/main-slider2.jpg"
+                  class="d-block w-100"
+                  alt="img-fluid"
+                /> %>
+          </div>
+          <div class="carousel-item" data-bs-interval="2000">
+            <%= image_tag "main-slider3", :class => "d-block w-100" %>
+            <%# <img
+                  src="images/main-slider3.jpg"
+                  class="d-block w-100"
+                  alt="img-fluid"
+                /> %>
+          </div>
+        </div>
+      </div>
+
+      <!--
+          *** ADVANTAGES HOMEPAGE ***
+          _________________________________________________________
+          -->
+      <div id="advantages">
+        <div class="container">
+          <div class="row mb-4">
+            <div class="col-md-4">
+              <div
+                    class="box d-flex flex-column justify-content-center mb-0 h-100"
+                  >
+                <div class="icon"><i class="fa fa-heart"></i></div>
+                <h3>We love our customers</h3>
+                <p class="mb-0">
+                  We are known to provide best possible service ever
+                </p>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div
+                    class="box d-flex flex-column justify-content-center mb-0 h-100"
+                  >
+                <div class="icon"><i class="fa fa-tags"></i></div>
+                <h3>Best prices</h3>
+                <p class="mb-0">
+                  You can check that the height of the boxes adjust when
+                  longer text like this one is used in one of them.
+                </p>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div
+                    class="box d-flex flex-column justify-content-center mb-0 h-100"
+                  >
+                <div class="icon"><i class="fa fa-thumbs-up"></i></div>
+                <h3>100% satisfaction</h3>
+                <p class="mb-0">Free returns on everything for 20 days.</p>
+              </div>
+            </div>
+          </div>
+          <!-- /.row-->
+        </div>
+        <!-- /.container-->
+      </div>
+      <!-- /#advantages-->
+      <!-- *** ADVANTAGES END ***-->
+
+      <!--
+           *** POPULAR PRODUCT SLIDESHOW ***
+           _________________________________________________________
+           -->
+      <div id="popular">
+        <div class="box py-4">
+          <div class="container">
+            <div class="row">
+              <div class="col-md-12">
+                <h2 class="mb-0 text-center">Popular this week</h2>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="item">
+        <div class="row text-center">
+          <div class="col-md-3">
+            <div class="card">
+              <%= image_tag "product1", :class => "card-img-top" %>
+              <%# <a href="details.html">
+                    <img
+                      src="images/product1.jpg"
+                      class="card-img-top"
+                      alt="product_img"
+                  /></a> %>
+              <div class="card-body">
+                <h5 class="card-title">Book 1</h5>
+                <p class="card-text author-name">Author Name</p>
+                <p class="card-text price">$ 39</p>
+                <a href="#" class="btn btn-primary">Add To Cart</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-3">
+            <div class="card">
+              <%= image_tag "product3", :class => "card-img-top" %>
+              <%# <a href="details.html">
+                    <img
+                      src="images/product2.jpg"
+                      class="card-img-top"
+                      alt="product_img"
+                    />
+                  </a> %>
+              <div class="card-body">
+                <h5 class="card-title">Book 2</h5>
+                <p class="card-text author-name">Author Name</p>
+                <p class="card-text price">$ 39</p>
+                <a href="#" class="btn btn-primary">Add To Cart</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-3">
+            <div class="card">
+              <%= image_tag "product4", :class => "card-img-top" %>
+              <%# <a href="details.html">
+                    <img
+                      src="images/product3.jpg"
+                      class="card-img-top"
+                      alt="product_img"
+                  /></a> %>
+              <div class="card-body">
+                <h5 class="card-title">Book 3</h5>
+                <p class="card-text author-name">Author Name</p>
+                <p class="card-text price">$ 39</p>
+                <a href="#" class="btn btn-primary">Add To Cart</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-3">
+            <div class="card">
+              <%= image_tag "product2", :class => "card-img-top" %>
+              <%# <a href="details.html">
+                    <img
+                      src="images/product1.jpg"
+                      class="card-img-top"
+                      alt="product_img"
+                  /></a> %>
+              <div class="card-body">
+                <h5 class="card-title">Book 1</h5>
+                <p class="card-text author-name">Author Name</p>
+                <p class="card-text price">$ 39</p>
+                <a href="#" class="btn btn-primary">Add To Cart</a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- HOT PRODUCT SHLDESHOW END -->
+      </div>
+    </div>
+    <!-- *** id="content" end *** -->
+  </div>

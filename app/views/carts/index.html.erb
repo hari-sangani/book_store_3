@@ -1,14 +1,159 @@
-<p style="color: green"><%= notice %></p>
+<!--
+    *** MAIN ***
+    _________________________________________________________
+    -->
+    <div class="all">
+      <div id="content">
+        <div class="container">
+          <div class="row">
+            <div id="basket" class="col-lg-9">
+              <div class="box">
+                <form method="post" action="checkout1.html">
+                  <h1>Shopping cart</h1>
+                  <p class="text-muted">
+                    You currently have 3 item(s) in your cart.
+                  </p>
+                  <div class="table-responsive">
+                    <table class="table">
+                      <thead>
+                        <tr>
+                          <hr class="mb-0" />
+                          <th colspan="2">Product</th>
+                          <th>Quantity</th>
+                          <th>Unit price</th>
+                          <th>Discount</th>
+                          <th colspan="2">Total</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td>
+                          <%= image_tag "product3" %>
+                            <%# <a href="#"
+                              ><img
+                                src="images/product1.jpg"
+                                alt="product1_img"
+                            /></a> %>
+                          </td>
+                          <td><a href="#">Book 1</a></td>
+                          <td>
+                            <input
+                              type="number"
+                              value="2"
+                              class="form-control"
+                            />
+                          </td>
+                          <td>$12.00</td>
+                          <td>$0.00</td>
+                          <td>$24.00</td>
+                          <td>
+                            <a href="#"><i class="fa fa-trash-o"></i></a>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>
+                          <%= image_tag "product2" %>
+                            <%# <a href="#"
+                              ><img
+                                src="images/product2.jpg"
+                                alt="product2_img "
+                            /></a> %>
+                          </td>
+                          <td><a href="#">Book 2</a></td>
+                          <td>
+                            <input
+                              type="number"
+                              value="1"
+                              class="form-control"
+                            />
+                          </td>
+                          <td>$14.00</td>
+                          <td>$0.00</td>
+                          <td>$14.00</td>
+                          <td>
+                            <a href="#"><i class="fa fa-trash-o"></i></a>
+                          </td>
+                        </tr>
+                      </tbody>
+                      <tfoot>
+                        <tr>
+                          <th colspan="5">Total</th>
+                          <th colspan="2">$38.00</th>
+                        </tr>
+                      </tfoot>
+                    </table>
+                  </div>
+                  <!-- /.table-responsive-->
+                  <div
+                    class="box-footer d-flex justify-content-between flex-column flex-lg-row"
+                  >
+                    <div class="left">
+                      <a href="list.html" class="btn btn-outline-secondary"
+                        ><i class="fa fa-chevron-left"></i> Continue shopping</a
+                      >
+                    </div>
+                    <div class="right">
+                      <button type="submit" class="btn btn-primary">
+                        Place Order
+                      </button>
+                    </div>
+                  </div>
+                </form>
+              </div>
+            </div>
 
-<h1>Carts</h1>
-
-<div id="carts">
-  <% @carts.each do |cart| %>
-    <%= render cart %>
-    <p>
-      <%= link_to "Show this cart", cart %>
-    </p>
-  <% end %>
-</div>
-
-<%= link_to "New cart", new_cart_path %>
+            <div class="col-lg-3">
+              <div id="order-summary" class="box">
+                <div class="box-header">
+                  <h3 class="mb-0">Order summary</h3>
+                  <hr />
+                </div>
+                <p class="text-muted">
+                  Shipping and additional costs are calculated based on the
+                  values you have entered.
+                </p>
+                <div class="table-responsive">
+                  <table class="table">
+                    <tbody>
+                      <tr>
+                        <td>Order subtotal</td>
+                        <th>$38.00</th>
+                      </tr>
+                      <tr>
+                        <td>Shipping and handling</td>
+                        <th>$10.00</th>
+                      </tr>
+                      <tr>
+                        <td>Tax</td>
+                        <th>$0.00</th>
+                      </tr>
+                      <tr class="total">
+                        <td>Total</td>
+                        <th>$48.00</th>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+              <div class="box">
+                <div class="box-header">
+                  <h4 class="mb-0">Coupon code</h4>
+                </div>
+                <p class="text-muted">
+                  If you have a coupon code, please enter it in the box below.
+                </p>
+                <form>
+                  <div class="input-group">
+                    <input type="text" class="form-control" />
+                    <button type="button" class="btn btn-primary">
+                      <i class="fa fa-gift"></i>
+                    </button>
+                  </div>
+                  <!-- /input-group-->
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- *** id="content" end *** -->
+      </div>

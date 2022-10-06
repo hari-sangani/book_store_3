@@ -1,14 +1,131 @@
-<p style="color: green"><%= notice %></p>
+<!--
+    *** MAIN ***
+    _________________________________________________________
+    -->
+<div class="all">
+  <div id="content">
+    <div class="container">
+      <div class="row">
+        <%= render "layouts/category_menu" %>
 
-<h1>Authors</h1>
+        <div class="col-lg-9">
+          <div class="row products">
+            <div class="col-lg-4 col-md-6">
+              <div class="product">
+                <div class="card">
+                  <%= image_tag "product2.jpg", :class => "card-img-top" %>
+                  <div class="card-body">
+                    <h5 class="card-title">Book 1</h5>
+                    <p class="card-text author-name">Author Name</p>
+                    <p class="card-text price">$ 39</p>
+                    <div class="pb-2">
+                      <a href="#" class="btn btn1">View Details</a>
+                    </div>
+                    <a href="#" class="btn btn-primary"
+                          ><i class="fa fa-shopping-cart"> Add To Cart</i></a
+                        >
+                  </div>
+                </div>
+              </div>
+            </div>
 
-<div id="authors">
-  <% @authors.each do |author| %>
-    <%= render author %>
-    <p>
-      <%= link_to "Show this author", author %>
-    </p>
-  <% end %>
-</div>
+            <div class="col-lg-4 col-md-6">
+              <div class="product">
+                <div class="card">
+                  <%= image_tag "product4.jpg", :class => "card-img-top" %>
+                  <div class="card-body">
+                    <h5 class="card-title">Book 1</h5>
+                    <p class="card-text author-name">Author Name</p>
+                    <p class="card-text price">$ 39</p>
+                    <div class="pb-2">
+                      <a href="#" class="btn btn1">View Details</a>
+                    </div>
+                    <a href="#" class="btn btn-primary"
+                          ><i class="fa fa-shopping-cart"> Add To Cart</i></a
+                        >
+                  </div>
+                </div>
+              </div>
+            </div>
 
-<%= link_to "New author", new_author_path %>
+            <div class="col-lg-4 col-md-6">
+              <div class="product">
+                <div class="card">
+                  <%= image_tag "product3.jpg", :class => "card-img-top" %>
+                  <div class="card-body">
+                    <h5 class="card-title">Book 1</h5>
+                    <p class="card-text author-name">Author Name</p>
+                    <p class="card-text price">$ 39</p>
+                    <div class="pb-2">
+                      <a href="#" class="btn btn1">View Details</a>
+                    </div>
+                    <a href="#" class="btn btn-primary"
+                          ><i class="fa fa-shopping-cart"> Add To Cart</i></a
+                        >
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-lg-4 col-md-6">
+              <div class="product">
+                <div class="card">
+                  <%= image_tag "product5.jpg", :class => "card-img-top" %>
+                  <div class="card-body">
+                    <h5 class="card-title">Book 1</h5>
+                    <p class="card-text author-name">Author Name</p>
+                    <p class="card-text price">$ 39</p>
+                    <div class="pb-2">
+                      <a href="#" class="btn btn1">View Details</a>
+                    </div>
+                    <a href="#" class="btn btn-primary"
+                          ><i class="fa fa-shopping-cart"> Add To Cart</i></a
+                        >
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-lg-4 col-md-6">
+              <div class="product">
+                <div class="card">
+                  <%= image_tag "product1.jpg", :class => "card-img-top" %>
+                  <div class="card-body">
+                    <h5 class="card-title">Book 1</h5>
+                    <p class="card-text author-name">Author Name</p>
+                    <p class="card-text price">$ 39</p>
+                    <div class="pb-2">
+                      <a href="#" class="btn btn1">View Details</a>
+                    </div>
+                    <a href="#" class="btn btn-primary"
+                          ><i class="fa fa-shopping-cart"> Add To Cart</i></a
+                        >
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-lg-4 col-md-6">
+              <div class="product">
+                <div class="card">
+                  <%= image_tag "product2.jpg", :class => "card-img-top" %>
+                  <div class="card-body">
+                    <h5 class="card-title">Book 1</h5>
+                    <p class="card-text author-name">Author Name</p>
+                    <p class="card-text price">$ 39</p>
+                    <div class="pb-2">
+                      <a href="#" class="btn btn1">View Details</a>
+                    </div>
+                    <a href="#" class="btn btn-primary"
+                          ><i class="fa fa-shopping-cart"> Add To Cart</i></a
+                        >
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- *** id="content" end *** -->
+  </div>

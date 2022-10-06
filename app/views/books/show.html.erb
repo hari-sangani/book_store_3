@@ -1,10 +1,84 @@
-<p style="color: green"><%= notice %></p>
+<!--
+    *** MAIN ***
+    _________________________________________________________
+    -->
+<div class="all">
+  <div id="content">
+    <div class="container">
+      <div class="row">
+        <%= render "layouts/category_menu" %>
 
-<%= render @book %>
+        <div class="col-lg-9">
+          <div id="product_main" class="row">
+            <div class="col-lg-6 product_img">
+              <%= image_tag "product1.jpg" %>
+              <%# <img
+                    src="../../assets/images/product1.jpg"
+                    class="rounded-3"
+                    alt="product1_img"
+                  /> %>
+            </div>
+            <div class="col-lg-6">
+              <div class="box text-center">
+                <h1 class="book_title">The Human Memory</h1>
+                <p class="author_name fs-6">by Dr Mildred S. Dresselhaus</p>
+                <p class="price">$12.00</p>
+                <p class="buttons">
+                  <a href="basket.html" class="btn btn-primary"
+                        ><i class="fa fa-shopping-cart"></i> Add to cart</a
+                      >
+                  <a href="wishlist.html" class="btn btn-outline-primary"
+                        ><i class="fa fa-heart"></i> Add to wishlist</a
+                      >
+                </p>
+              </div>
+            </div>
+          </div>
 
-<div>
-  <%= link_to "Edit this book", edit_book_path(@book) %> |
-  <%= link_to "Back to books", books_path %>
+          <div id="details" class="box">
+            <h4>About the Author</h4>
+            <p>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit.
+              Eveniet ab, non autem sit nostrum quibusdam. Quo, sit ex ea
+              aspernatur necessitatibus, quia accusamus perferendis nam
+              ducimus. Lorem ipsum dolor sit amet consectetur adipisicing
+              elit. Sit quisquam quidem odit unde! Eveniet nihil nobis unde
+              nulla expedita et blanditiis, nisi enim minima, mollitia, quam
+              at perferendis veniam quasi.
+            </p>
+            <hr />
 
-  <%= button_to "Destroy this book", @book, method: :delete %>
-</div>
+            <h4>Product details</h4>
+            <ul>
+              <li><strong>Publisher :</strong> Dolor</li>
+              <li><strong>Published Date :</strong> 12-09-2021</li>
+              <li><strong>Language :</strong> English</li>
+              <li><strong>Paperback :</strong> 200</li>
+              <li><strong>ISBN No. :</strong> 9390342355</li>
+            </ul>
+          </div>
+
+          <div id="review" class="box">
+            <h4>Product Review</h4>
+            <hr />
+            <div class="review_container">
+              <div class="d-flex flex-row mb-1">
+                <%= image_tag "avatar1.png", :class => "review_img" %>
+                <h5 class="py-2 ms-2">Lorem Droy</h5>
+              </div>
+              <p>Awesome book!</p>
+            </div>
+
+            <div class="review_container">
+              <div class="d-flex flex-row mb-1">
+                <%= image_tag "avatar2.png", :class => "review_img" %>
+                <h5 class="py-2 ms-2">Ipsum Romm</h5>
+              </div>
+              <p>It's awesome, and I'm happy that I read it.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- *** id="content" end *** -->
+  </div>

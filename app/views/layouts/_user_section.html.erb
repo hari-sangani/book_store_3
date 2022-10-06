@@ -1,0 +1,35 @@
+<div class="col-lg-3">
+  <div class="card sidebar-menu">
+    <div class="card-header">
+      <h3 class="h4 card-title">User section</h3>
+    </div>
+    <div class="card-body">
+      <ul class="nav nav-pills flex-column category-menu">
+        <li>
+          <%= link_to "My Order", orders_path, :class => "nav-link" %>
+          <%# <a href="customer_orders.html" class="nav-link">
+            <i class="fa fa-list"></i> My orders</a
+          > %>
+        </li>
+        <li>
+          <%= link_to "My Wishlist", wishlists_path, :class => "nav-link" %>
+          <%# <a href="wishlist.html" class="nav-link active"
+            ><i class="fa fa-heart"></i> My wishlist</a
+          > %>
+        </li>
+        <li>
+          <%= link_to "My Account", orders_path, :class => "nav-link" %>
+          <%# <a href="customer_account.html" class="nav-link"
+            ><i class="fa fa-user"></i> My account</a
+          > %>
+        </li>
+        <li>
+          <%= link_to "Logout", pages_home_path, :class => "nav-link" %>
+          <%# <a href="index.html" class="nav-link"
+            ><i class="fa fa-sign-out"></i> Logout</a
+          > %>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
