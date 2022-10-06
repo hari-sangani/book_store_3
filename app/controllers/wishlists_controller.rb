@@ -3,7 +3,7 @@ class WishlistsController < ApplicationController
 
   # GET /wishlists or /wishlists.json
   def index
-    @wishlists = Wishlist.all
+    @pagy, @wishlists = pagy(Wishlist.all, items: 6)
   end
 
   # GET /wishlists/1 or /wishlists/1.json
