@@ -10,119 +10,31 @@
 
         <div class="col-lg-9">
           <div class="row products">
-            <div class="col-lg-4 col-md-6">
-              <div class="product">
-                <div class="card">
-                  <%= image_tag "product2.jpg", class: "card-img-top" %>
-                  <div class="card-body">
-                    <h5 class="card-title">Book 1</h5>
-                    <p class="card-text author-name">Author Name</p>
-                    <p class="card-text price">$ 39</p>
-                    <div class="pb-2">
-                      <a href="#" class="btn btn1">View Details</a>
+            <% @books.each do | book | %>
+              <div class="col-lg-4 col-md-6">
+                <div class="product">
+                  <div class="card">
+                    <%= image_tag (book.image), class: "card-img-top" if book.image.attached? %>
+                    <div class="card-body">
+                      <h5 class="card-title"><%= book.title %></h5>
+                      <p class="card-text author-name">
+                        <% book.authors.each do | author | %>
+                          <%= author.name %>
+                        <% end %>
+                      </p>
+                      <p class="card-text price">₹<%= book.price %></p>
+                      <div class="pb-2">
+                        <%= link_to "View Details", book_path(book.id), class: "btn btn1" %>
+                        <%# <a href="#" class="btn btn1">View Details</a> %>
+                      </div>
+                      <%= link_to "Add to Cart", carts_path, class: "btn btn-primary" %>
+                      <%# <a href="#" class="btn btn-primary">
+                      <i class="fa fa-shopping-cart"> Add To Cart</i></a> %>
                     </div>
-                    <a href="#" class="btn btn-primary"
-                          ><i class="fa fa-shopping-cart"> Add To Cart</i></a
-                        >
                   </div>
                 </div>
               </div>
-            </div>
-
-            <div class="col-lg-4 col-md-6">
-              <div class="product">
-                <div class="card">
-                  <%= image_tag "product4.jpg", class: "card-img-top" %>
-                  <div class="card-body">
-                    <h5 class="card-title">Book 1</h5>
-                    <p class="card-text author-name">Author Name</p>
-                    <p class="card-text price">$ 39</p>
-                    <div class="pb-2">
-                      <a href="#" class="btn btn1">View Details</a>
-                    </div>
-                    <a href="#" class="btn btn-primary"
-                          ><i class="fa fa-shopping-cart"> Add To Cart</i></a
-                        >
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div class="col-lg-4 col-md-6">
-              <div class="product">
-                <div class="card">
-                  <%= image_tag "product3.jpg", class: "card-img-top" %>
-                  <div class="card-body">
-                    <h5 class="card-title">Book 1</h5>
-                    <p class="card-text author-name">Author Name</p>
-                    <p class="card-text price">$ 39</p>
-                    <div class="pb-2">
-                      <a href="#" class="btn btn1">View Details</a>
-                    </div>
-                    <a href="#" class="btn btn-primary"
-                          ><i class="fa fa-shopping-cart"> Add To Cart</i></a
-                        >
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div class="col-lg-4 col-md-6">
-              <div class="product">
-                <div class="card">
-                  <%= image_tag "product5.jpg", class: "card-img-top" %>
-                  <div class="card-body">
-                    <h5 class="card-title">Book 1</h5>
-                    <p class="card-text author-name">Author Name</p>
-                    <p class="card-text price">$ 39</p>
-                    <div class="pb-2">
-                      <a href="#" class="btn btn1">View Details</a>
-                    </div>
-                    <a href="#" class="btn btn-primary"
-                          ><i class="fa fa-shopping-cart"> Add To Cart</i></a
-                        >
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div class="col-lg-4 col-md-6">
-              <div class="product">
-                <div class="card">
-                  <%= image_tag "product1.jpg", class: "card-img-top" %>
-                  <div class="card-body">
-                    <h5 class="card-title">Book 1</h5>
-                    <p class="card-text author-name">Author Name</p>
-                    <p class="card-text price">$ 39</p>
-                    <div class="pb-2">
-                      <a href="#" class="btn btn1">View Details</a>
-                    </div>
-                    <a href="#" class="btn btn-primary"
-                          ><i class="fa fa-shopping-cart"> Add To Cart</i></a
-                        >
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div class="col-lg-4 col-md-6">
-              <div class="product">
-                <div class="card">
-                  <%= image_tag "product2.jpg", class: "card-img-top" %>
-                  <div class="card-body">
-                    <h5 class="card-title">Book 1</h5>
-                    <p class="card-text author-name">Author Name</p>
-                    <p class="card-text price">$ 39</p>
-                    <div class="pb-2">
-                      <a href="#" class="btn btn1">View Details</a>
-                    </div>
-                    <a href="#" class="btn btn-primary"
-                          ><i class="fa fa-shopping-cart"> Add To Cart</i></a
-                        >
-                  </div>
-                </div>
-              </div>
-            </div>
+            <% end %>
           </div>
           <%= render "layouts/pagy" %>
         </div>
