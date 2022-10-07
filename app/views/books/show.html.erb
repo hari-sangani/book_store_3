@@ -2,6 +2,7 @@
     *** MAIN ***
     _________________________________________________________
     -->
+
 <div class="all">
   <div id="content">
     <div class="container">
@@ -11,7 +12,7 @@
         <div class="col-lg-9">
           <div id="product_main" class="row">
             <div class="col-lg-6 product_img">
-              <%= image_tag "product1.jpg" %>
+              <%= image_tag (@book.image), class: "rounded-3 product_img" if @book.image.attached? %>
               <%# <img
                     src="../../assets/images/product1.jpg"
                     class="rounded-3"
@@ -20,9 +21,13 @@
             </div>
             <div class="col-lg-6">
               <div class="box text-center">
-                <h1 class="book_title">The Human Memory</h1>
-                <p class="author_name fs-6">by Dr Mildred S. Dresselhaus</p>
-                <p class="price">$12.00</p>
+                <h1 class="book_title"><%= @book.title %></h1>
+                <p class="author_name fs-6">by
+                  <% @book.authors.each do | author | %>
+                    <%= author.name %>
+                  <% end %>
+                </p>
+                <p class="price">₹<%= @book.price %></p>
                 <p class="buttons">
                   <a href="basket.html" class="btn btn-primary"
                         ><i class="fa fa-shopping-cart"></i> Add to cart</a
@@ -50,11 +55,11 @@
 
             <h4>Product details</h4>
             <ul>
-              <li><strong>Publisher :</strong> Dolor</li>
-              <li><strong>Published Date :</strong> 12-09-2021</li>
-              <li><strong>Language :</strong> English</li>
-              <li><strong>Paperback :</strong> 200</li>
-              <li><strong>ISBN No. :</strong> 9390342355</li>
+              <li><strong>Publisher : </strong><%= @book.publisher.name %></li>
+              <li><strong>Published Date : </strong><%= @book.publish_date %></li>
+              <li><strong>Language : </strong><%= @book.language %></li>
+              <li><strong>Paperback : </strong><%= @book.paperback %></li>
+              <li><strong>ISBN No. : </strong><%= @book.isbndb %></li>
             </ul>
           </div>
 
