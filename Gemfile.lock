@@ -290,6 +290,7 @@ DEPENDENCIES
   image_processing (~> 1.2)
   importmap-rails
   jbuilder
+  jquery-rails
   mysql2 (~> 0.5)
   pagy
   puma (~> 5.0)
