@@ -1,5 +1,5 @@
 class PublishersController < ApplicationController
-  before_action :set_publisher, only: %i[show edit update destroy]
+  before_action :set_publisher, only: %i[edit update destroy]
 
   # GET /publishers or /publishers.json
   def index
@@ -7,7 +7,9 @@ class PublishersController < ApplicationController
   end
 
   # GET /publishers/1 or /publishers/1.json
-  def show; end
+  def show
+    @books = Publisher.find(params[:id]).books
+  end
 
   # GET /publishers/new
   def new

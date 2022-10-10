@@ -9,54 +9,25 @@
           <%= link_to "Genre", categories_path, class: "nav-link" %>
           <%# <a href="#" class="nav-link active">Genre</a> %>
           <ul class="list-unstyled">
-            <li>
-              <a href="#" class="nav-link">Comic</a>
-            </li>
-            <li>
-              <a href="#" class="nav-link">Business</a>
-            </li>
-            <li>
-              <a href="#" class="nav-link">Politics</a>
-            </li>
-            <li>
-              <a href="#" class="nav-link">Science</a>
-            </li>
+            <% Category.all.each do | category | %>
+              <li><%= link_to category.name, category_path(category.id), class: "nav-link" %></li>
+            <% end %>
           </ul>
         </li>
         <li>
           <%= link_to "Author", authors_path, class: "nav-link" %>
-          <%# <a href="#" class="nav-link">Author</a> %>
           <ul class="list-unstyled">
-            <li>
-              <a href="#" class="nav-link">Amrita Pritam</a>
-            </li>
-            <li>
-              <a href="#" class="nav-link">William Shakespeare</a>
-            </li>
-            <li>
-              <a href="#" class="nav-link">Ruskin Bond</a>
-            </li>
-            <li>
-              <a href="#" class="nav-link">R.K. Narayan</a>
-            </li>
+            <% Author.all.each do | author | %>
+              <li><%= link_to author.name, author_path(author.id), class: "nav-link" %></li>
+            <% end %>
           </ul>
         </li>
         <li>
           <%= link_to "Publisher", publishers_path, class: "nav-link" %>
-          <%# <a href="#" class="nav-link">Publisher</a> %>
           <ul class="list-unstyled">
-            <li>
-              <a href="#" class="nav-link"> Dolor</a>
-            </li>
-            <li>
-              <a href="#" class="nav-link">Sumshfa</a>
-            </li>
-            <li>
-              <a href="#" class="nav-link">Edubva</a>
-            </li>
-            <li>
-              <a href="#" class="nav-link">Lorem</a>
-            </li>
+            <% Publisher.all.each do | publisher | %>
+              <li><%= link_to publisher.name, publisher_path(publisher.id), class: "nav-link" %></li>
+            <% end %>
           </ul>
         </li>
         <li>
@@ -90,9 +61,6 @@
             </li>
             <li>
               <a href="#" class="nav-link"> Hindi</a>
-            </li>
-            <li>
-              <a href="#" class="nav-link"> German</a>
             </li>
           </ul>
         </li>
