@@ -4,8 +4,17 @@ ActiveAdmin.register Book do
   #
   # Uncomment all parameters which should be permitted for assignment
   #
-  permit_params :publisher_id, :title, :isbndb, :publish_date, :language, :mrp, :discount, :price, :paperback,
+  permit_params :publisher_id, :title, :image, :isbndb, :publish_date, :language, :mrp, :discount, :price, :paperback,
                 :quantity, :active
+
+  form do |f|
+    f.semantic_errors # shows errors on :base
+    f.inputs
+    f.inputs do # builds an input field for every attribute
+      f.input :image, as: :file
+    end
+    f.actions # adds the 'Submit' and 'Cancel' buttons
+  end
   #
   # or
   #
