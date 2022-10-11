@@ -6,7 +6,7 @@
     <div class="card-body">
       <ul class="nav nav-pills flex-column category-menu">
         <li>
-          <%= link_to "Genre", categories_path, class: "nav-link" %>
+          <h3>Genre</h3>
           <%# <a href="#" class="nav-link active">Genre</a> %>
           <ul class="list-unstyled">
             <% Category.all.each do | category | %>
@@ -15,7 +15,7 @@
           </ul>
         </li>
         <li>
-          <%= link_to "Author", authors_path, class: "nav-link" %>
+          <h3>Author</h3>
           <ul class="list-unstyled">
             <% Author.all.each do | author | %>
               <li><%= link_to author.name, author_path(author.id), class: "nav-link" %></li>
@@ -23,7 +23,7 @@
           </ul>
         </li>
         <li>
-          <%= link_to "Publisher", publishers_path, class: "nav-link" %>
+          <h3>Publisher</h3>
           <ul class="list-unstyled">
             <% Publisher.all.each do | publisher | %>
               <li><%= link_to publisher.name, publisher_path(publisher.id), class: "nav-link" %></li>
@@ -31,7 +31,7 @@
           </ul>
         </li>
         <li>
-          <a href="#" class="nav-link">Price</a>
+          <h3>Price</h3>
           <ul class="list-unstyled">
             <li>
               <a href="#" class="nav-link"> Under ₹100</a>
@@ -51,7 +51,7 @@
           </ul>
         </li>
         <li>
-          <a href="#" class="nav-link">Language</a>
+          <h3>Language</h3>
           <ul class="list-unstyled">
             <li>
               <a href="#" class="nav-link"> English</a>

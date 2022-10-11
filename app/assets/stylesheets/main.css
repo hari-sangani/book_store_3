@@ -385,6 +385,17 @@ button i.fa {
   color: #fff;
 }
 
+#content .card.sidebar-menu ul.nav h3 {
+  background-color: #4fbfa8;
+  color: #fff;
+  padding: 10px;
+  text-align: left;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  font-weight: bold;
+  font-size: 19px;
+}
+
 #content .card.sidebar-menu ul.nav ul {
   list-style: none;
   padding-left: 0;
