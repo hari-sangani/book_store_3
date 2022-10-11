@@ -17,8 +17,12 @@
                     <%= image_tag (book.image), class: "card-img-top" if book.image.attached? %>
                     <div class="card-body">
                       <h5 class="card-title"><%= book.title %></h5>
-                      <p class="card-text author-name"><%= book.authors.name %></p>
-                      <p class="card-text price">$ <%= book.price %></p>
+                      <p class="card-text author-name">
+                        <% book.authors.each do | author | %>
+                          <%= author.name %>
+                        <% end %>
+                      </p>
+                      <p class="card-text price">₹<%= book.price %></p>
                       <div class="pb-2">
                         <%= link_to "View Details", book_path(book.id), class: "btn btn1" %>
                       </div>
@@ -30,6 +34,7 @@
                 </div>
               </div>
             <% end %>
+            <%= render "layouts/pagy" %>
 
           </div>
         </div>
