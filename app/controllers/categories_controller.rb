@@ -8,7 +8,7 @@ class CategoriesController < ApplicationController
 
   # GET /categories/1 or /categories/1.json
   def show
-    @books = Category.find(params[:id]).books
+    @pagy, @books = pagy(Category.find(params[:id]).books, items: 6)
   end
 
   # GET /categories/new

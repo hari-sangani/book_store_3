@@ -8,7 +8,7 @@ class AuthorsController < ApplicationController
 
   # GET /authors/1 or /authors/1.json
   def show
-    @books = Author.find(params[:id]).books
+    @pagy, @books = pagy(Author.find(params[:id]).books, items: 6)
   end
 
   # GET /authors/new
