@@ -14,7 +14,7 @@
               <div class="col-lg-4 col-md-6">
                 <div class="product">
                   <div class="card">
-                    <%= image_tag (book.image), class: "card-img-top" if book.image.attached? %>
+                    <%= link_to image_tag(book.image, class: "card-img-top"), book_path(book.id) if book.image.attached? %>
                     <div class="card-body">
                       <h5 class="card-title"><%= book.title %></h5>
                       <p class="card-text author-name">
