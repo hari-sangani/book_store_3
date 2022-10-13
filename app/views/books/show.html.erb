@@ -13,11 +13,6 @@
           <div id="product_main" class="row">
             <div class="col-lg-6 product_img">
               <%= image_tag (@book.image), class: "rounded-3 product_img" if @book.image.attached? %>
-              <%# <img
-                    src="../../assets/images/product1.jpg"
-                    class="rounded-3"
-                    alt="product1_img"
-                  /> %>
             </div>
             <div class="col-lg-6">
               <div class="box text-center">
@@ -29,12 +24,20 @@
                 </p>
                 <p class="price">₹<%= @book.price %></p>
                 <p class="buttons">
-                  <a href="basket.html" class="btn btn-primary"
-                        ><i class="fa fa-shopping-cart"></i> Add to cart</a
-                      >
-                  <a href="wishlist.html" class="btn btn-outline-primary"
-                        ><i class="fa fa-heart"></i> Add to wishlist</a
-                      >
+                  <% if user_signed_in? %>
+                    <%= link_to carts_path, class: "btn btn-primary" do %>
+                      <i class="fa fa-shopping-cart"></i> Add to cart
+                    <% end %>
+                    <%= link_to wishlists_path, class: "btn btn-outline-primary" do %>
+                      <i class="fa fa-heart"></i> Add to wishlist
+                    <% end %>
+                  <% else %><%= link_to user_session_path, class: "btn btn-primary" do %>
+                      <i class="fa fa-shopping-cart"></i> Add to cart
+                    <% end %>
+                    <%= link_to user_session_path, class: "btn btn-outline-primary" do %>
+                      <i class="fa fa-heart"></i> Add to wishlist
+                    <% end %>
+                  <% end %>
                 </p>
               </div>
             </div>

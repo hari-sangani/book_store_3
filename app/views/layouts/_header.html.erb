@@ -73,19 +73,26 @@
               </form>
             </div>
             <div id="wishlist-overview" class="me-3">
-              <%= link_to wishlists_path, class: "btn btn-primary navbar-btn" do %>
-                <i class="fa fa-heart"></i>
+              <% if user_signed_in? %>
+                <%= link_to wishlists_path, class: "btn btn-primary navbar-btn" do %>
+                  <i class="fa fa-heart"></i>
+                <% end %>
+              <% else %>
+                <%= link_to user_session_path, class: "btn btn-primary navbar-btn" do %>
+                  <i class="fa fa-heart"></i>
+                <% end %>
               <% end %>
-              <%# <a href="wishlist.html" class="btn btn-primary navbar-btn"
-                ><i class="fa fa-heart"></i
-              ></a> %>
             </div>
             <div id="basket-overview">
-              <%= link_to carts_path, class: "btn btn-primary navbar-btn" do %>
-                <i class="fa fa-shopping-cart"></i>
+              <% if user_signed_in? %>
+                <%= link_to carts_path, class: "btn btn-primary navbar-btn" do %>
+                  <i class="fa fa-shopping-cart"></i>
+                <% end %>
+              <% else %>
+                <%= link_to user_session_path, class: "btn btn-primary navbar-btn" do %>
+                  <i class="fa fa-shopping-cart"></i>
+                <% end %>
               <% end %>
-              <%# <a href="basket.html" class="btn btn-primary navbar-btn">
-              <i class="fa fa-shopping-cart"></i></a> %>
             </div>
           </div>
         </div>

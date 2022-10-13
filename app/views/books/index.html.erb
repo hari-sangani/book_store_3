@@ -17,7 +17,7 @@
                     <%= link_to image_tag(book.image, class: "card-img-top"), book_path(book.id) if book.image.attached? %>
                     <div class="card-body">
                       <h5 class="card-title"><%= book.title %></h5>
-                      <p class="card-text author-name">
+                      <p class="card-text author-name">by
                         <% book.authors.each do | author | %>
                           <%= author.name %>
                         <% end %>
@@ -25,11 +25,16 @@
                       <p class="card-text price">₹<%= book.price %></p>
                       <div class="pb-2">
                         <%= link_to "View Details", book_path(book.id), class: "btn btn1" %>
-                        <%# <a href="#" class="btn btn1">View Details</a> %>
                       </div>
-                      <%= link_to "Add to Cart", carts_path, class: "btn btn-primary" %>
-                      <%# <a href="#" class="btn btn-primary">
-                      <i class="fa fa-shopping-cart"> Add To Cart</i></a> %>
+                      <% if user_signed_in? %>
+                        <%= link_to carts_path, class: "btn btn-primary navbar-btn" do %>
+                          <i class="fa fa-shopping-cart"></i> Add to Cart
+                        <% end %>
+                      <% else %>
+                        <%= link_to user_session_path, class: "btn btn-primary navbar-btn" do %>
+                          <i class="fa fa-shopping-cart"></i> Add to Cart
+                        <% end %>
+                      <% end %>
                     </div>
                   </div>
                 </div>
