@@ -3,7 +3,8 @@ class WishlistsController < ApplicationController
 
   # GET /wishlists or /wishlists.json
   def index
-    @pagy, @wishlists = pagy(Wishlist.all, items: 6)
+    Wishlist.create(user_id: current_user.id, book_id: @book.id) if current_user.wishlist.nil?
+    @user_wishlist = Wishlist.where(user_id: current_user.id)
   end
 
   # GET /wishlists/1 or /wishlists/1.json
