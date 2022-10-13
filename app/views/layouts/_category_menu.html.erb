@@ -34,6 +34,7 @@
           <h3>Price</h3>
           <ul class="list-unstyled">
             <li>
+              <%# <%= link_to "Under ₹100", books_path() %>
               <a href="#" class="nav-link"> Under ₹100</a>
             </li>
             <li>
@@ -54,13 +55,13 @@
           <h3>Language</h3>
           <ul class="list-unstyled">
             <li>
-              <a href="#" class="nav-link"> English</a>
+              <%= link_to "English", books_path(language: "English"), class: "nav-link" %>
             </li>
             <li>
-              <a href="#" class="nav-link"> Gujarati</a>
+              <%= link_to "Hindi", books_path(language: "Hindi"), class: "nav-link" %>
             </li>
             <li>
-              <a href="#" class="nav-link"> Hindi</a>
+              <%= link_to "Gujarati", books_path(language: "Gujarati"), class: "nav-link" %>
             </li>
           </ul>
         </li>

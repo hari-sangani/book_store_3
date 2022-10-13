@@ -3,7 +3,11 @@ class BooksController < ApplicationController
 
   # GET /books or /books.json
   def index
-    @pagy, @books = pagy(Book.all, items: 6)
+    if params.has_key?(:language)
+      @pagy, @books = pagy(Book.where(language: params[:language]), items: 9)
+    else
+      @pagy, @books = pagy(Book.all, items: 9)
+    end
   end
 
   # GET /books/1 or /books/1.json
