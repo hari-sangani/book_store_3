@@ -10,6 +10,7 @@
               <div class="box">
                 <form method="post" action="checkout1.html">
                   <h1>Shopping cart</h1>
+                  <% if !@user_cart.empty? %>
                   <p class="text-muted">
                     You currently have 3 item(s) in your cart.
                   </p>
@@ -21,64 +22,43 @@
                           <th colspan="2">Product</th>
                           <th>Quantity</th>
                           <th>Unit price</th>
-                          <th>Discount</th>
                           <th colspan="2">Total</th>
                         </tr>
                       </thead>
                       <tbody>
+                      <% @user_cart.each do | item | %>
                         <tr>
                           <td>
-                          <%= image_tag "product3" %>
-                            <%# <a href="#"
-                              ><img
-                                src="images/product1.jpg"
-                                alt="product1_img"
-                            /></a> %>
+                            <%= image_tag (item.book.image) if item.book.image.attached? %>
                           </td>
-                          <td><a href="#">Book 1</a></td>
+                          <td>
+                            <%= link_to item.book.title, book_path(item.book.id) %>
+                          </td>
                           <td>
                             <input
-                              type="number"
-                              value="2"
-                              class="form-control"
-                            />
-                          </td>
-                          <td>$12.00</td>
-                          <td>$0.00</td>
-                          <td>$24.00</td>
-                          <td>
-                            <a href="#"><i class="fa fa-trash-o"></i></a>
-                          </td>
-                        </tr>
-                        <tr>
-                          <td>
-                          <%= image_tag "product2" %>
-                            <%# <a href="#"
-                              ><img
-                                src="images/product2.jpg"
-                                alt="product2_img "
-                            /></a> %>
-                          </td>
-                          <td><a href="#">Book 2</a></td>
-                          <td>
-                            <input
+                              name="no_of_items"
                               type="number"
                               value="1"
                               class="form-control"
                             />
                           </td>
-                          <td>$14.00</td>
-                          <td>$0.00</td>
-                          <td>$14.00</td>
                           <td>
-                            <a href="#"><i class="fa fa-trash-o"></i></a>
+                            ₹<%= item.book.price %>
+                          </td>
+                          <td>
+                            ₹<%= item.book.price %>
+                          </td>
+                          <td>
+                            <%= link_to "Delete", cart_path(item.id), method: :delete %>
+                            <%# <a href="#"><i class="fa fa-trash-o"></i></a> %>
                           </td>
                         </tr>
+                      <% end %>
                       </tbody>
                       <tfoot>
                         <tr>
                           <th colspan="5">Total</th>
-                          <th colspan="2">$38.00</th>
+                          <th colspan="2">₹38.00</th>
                         </tr>
                       </tfoot>
                     </table>
@@ -88,9 +68,10 @@
                     class="box-footer d-flex justify-content-between flex-column flex-lg-row"
                   >
                     <div class="left">
-                      <a href="list.html" class="btn btn-outline-secondary"
-                        ><i class="fa fa-chevron-left"></i> Continue shopping</a
-                      >
+
+                      <%# <a href="list.html" class="btn btn-outline-secondary">
+                        <i class="fa fa-chevron-left"></i> Continue shopping
+                      </a> %>
                     </div>
                     <div class="right">
                       <button type="submit" class="btn btn-primary">
@@ -99,6 +80,9 @@
                     </div>
                   </div>
                 </form>
+                <% else %>
+                  <h3>Cart is empty!</h3>
+                <% end %>
               </div>
             </div>
 
@@ -117,19 +101,19 @@
                     <tbody>
                       <tr>
                         <td>Order subtotal</td>
-                        <th>$38.00</th>
+                        <th>₹38.00</th>
                       </tr>
                       <tr>
                         <td>Shipping and handling</td>
-                        <th>$10.00</th>
+                        <th>₹10.00</th>
                       </tr>
                       <tr>
                         <td>Tax</td>
-                        <th>$0.00</th>
+                        <th>₹0.00</th>
                       </tr>
                       <tr class="total">
                         <td>Total</td>
-                        <th>$48.00</th>
+                        <th>₹48.00</th>
                       </tr>
                     </tbody>
                   </table>

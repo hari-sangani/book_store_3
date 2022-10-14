@@ -11,7 +11,7 @@
         <div id="wishlist" class="col-lg-9">
           <div class="row products">
             <% if !@user_wishlist.empty? %>
-              <% @user_wishlist.each do | list |%>
+              <% @user_wishlist.each do | list | %>
                 <div class="col-lg-4 col-md-6">
                   <div class="product">
                     <div class="card">
@@ -28,17 +28,22 @@
                           <%= link_to "View Details", book_path(list.book.id), class: "btn btn1" %>
                           <%# <a href="#" class="btn btn1">View Details</a> %>
                         </div>
-                        <a href="#" class="btn btn-primary"
+                        <div class="pb-2">
+                          <a href="#" class="btn btn-primary"
                           ><i class="fa fa-shopping-cart"> Add To Cart</i></a
                         >
+                        </div>
+                        <div>
+                          <%= link_to "Remove", wishlist_path(list.id), method: :delete, class: "btn del-btn" %>
+                        </div>
                       </div>
                     </div>
                   </div>
                 </div>
               <% end %>
             <% else %>
-              <div class="col-lg-4 col-md-6">
-                No Books found!!
+              <div>
+                <h4> No Books found in your wishlist!! </h4>
               </div>
             <% end %>
           </div>

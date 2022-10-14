@@ -3,7 +3,6 @@ class WishlistsController < ApplicationController
 
   # GET /wishlists or /wishlists.json
   def index
-    Wishlist.create(user_id: current_user.id, book_id: @book.id) if current_user.wishlist.nil?
     @user_wishlist = Wishlist.where(user_id: current_user.id)
   end
 
@@ -24,7 +23,7 @@ class WishlistsController < ApplicationController
 
     respond_to do |format|
       if @wishlist.save
-        format.html { redirect_to wishlist_url(@wishlist), notice: 'Wishlist was successfully created.' }
+        format.html { redirect_to wishlists_path, notice: 'Wishlist was successfully created.' }
         format.json { render :show, status: :created, location: @wishlist }
       else
         format.html { render :new, status: :unprocessable_entity }
