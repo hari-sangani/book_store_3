@@ -10,4 +10,5 @@ class Book < ApplicationRecord
 
   validates :publisher_id, :title, :isbndb, :publish_date, :language, :quantity, presence: true
   validates :isbndb, uniqueness: { message: 'Already exist!' }
+  validates :mrp, :discount, :price, numericality: { greater_than: 0 }
 end
