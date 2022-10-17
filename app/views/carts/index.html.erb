@@ -29,7 +29,7 @@
                       <% @user_cart.each do | item | %>
                         <tr>
                           <td>
-                            <%= image_tag (item.book.image) if item.book.image.attached? %>
+                            <%= link_to image_tag(item.book.image), book_path(item.book.id) if item.book.image.attached? %>
                           </td>
                           <td>
                             <%= link_to item.book.title, book_path(item.book.id) %>
@@ -68,10 +68,9 @@
                     class="box-footer d-flex justify-content-between flex-column flex-lg-row"
                   >
                     <div class="left">
-
-                      <%# <a href="list.html" class="btn btn-outline-secondary">
+                      <%= link_to books_path, class: "btn btn-outline-secondary" do %>
                         <i class="fa fa-chevron-left"></i> Continue shopping
-                      </a> %>
+                      <% end %>
                     </div>
                     <div class="right">
                       <button type="submit" class="btn btn-primary">
