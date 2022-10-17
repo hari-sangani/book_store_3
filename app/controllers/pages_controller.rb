@@ -1,5 +1,8 @@
 class PagesController < ApplicationController
-  def home; end
+  def home
+    @books = Book.all.shuffle
+    @random_books = @books.take(4)
+  end
 
   def about; end
 
