@@ -29,9 +29,11 @@
                           <%# <a href="#" class="btn btn1">View Details</a> %>
                         </div>
                         <div class="pb-2">
-                          <a href="#" class="btn btn-primary"
-                          ><i class="fa fa-shopping-cart"> Add To Cart</i></a
-                        >
+                          <%= link_to carts_path(cart: {user_id: current_user.id, book_id: list.book.id}),
+                                    method: :post,
+                                    class: "btn btn-primary navbar-btn" do %>
+                            <i class="fa fa-shopping-cart"></i> Add to Cart
+                          <% end %>
                         </div>
                         <div>
                           <%= link_to "Remove", wishlist_path(list.id), method: :delete, class: "btn del-btn" %>
