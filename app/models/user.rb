@@ -9,4 +9,10 @@ class User < ApplicationRecord
 
   validates :name, :email, :contact_no, :address, :username, presence: true
   validates :email, :username, uniqueness: { message: 'Already Exist! Try another one!!' }
+
+  after_create :send_email
+
+  def send_email
+    UserMailer.with(user: self).welcome_email.deliver_now
+  end
 end
