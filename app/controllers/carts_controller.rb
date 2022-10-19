@@ -4,7 +4,7 @@ class CartsController < ApplicationController
   # GET /carts or /carts.json
   def index
     @user_cart = Cart.where(user_id: current_user.id)
-    @quantity = params[:no_of_items].to_i
+    @shipping_cost = 40
   end
 
   # GET /carts/1 or /carts/1.json
@@ -21,6 +21,7 @@ class CartsController < ApplicationController
   # POST /carts or /carts.json
   def create
     @cart = Cart.new(cart_params)
+    @cart.quantity = 1
 
     respond_to do |format|
       if @cart.save
