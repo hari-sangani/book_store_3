@@ -1,70 +1,67 @@
 <!-- *** Top Bar Start *** -->
-    <header class="header">
-      <div id="top">
-        <div class="container">
-          <div class="row">
-            <div class="col-lg-6 offer mb-3 mb-lg-0">
-              <a href="#" class="btn btn-success btn-sm">Offer of the day</a>
-              <a href="#" class="ml-1">Get flat 35% off on orders over $50!</a>
-            </div>
-            <div class="col-lg-6 text-end text-lg-right">
-              <ul class="menu list-inline mb-0">
-                <% if user_signed_in? %>
-                  <li class="list-inline-item">Welcome, <%= current_user.name %></li>
-                  <li class="list-inline-item"><%= link_to "Logout", destroy_user_session_path, method: :delete %></li>
-                <% else %>
-                  <li class="list-inline-item"><%= link_to "Sign Up", new_user_registration_path %></li>
-                  <li class="list-inline-item"><%= link_to "Login", new_user_session_path %></li>
-                <% end %>
-                <li class="list-inline-item"><%= link_to "Contact", pages_contact_path %></li>
-                <li class="list-inline-item"><%= link_to "Account", edit_user_registration_path %></li>
-              </ul>
-            </div>
-          </div>
+<header class="header">
+  <div id="top">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-6 offer mb-3 mb-lg-0">
+          <a href="#" class="btn btn-success btn-sm"><%= t '.offer' %></a>
+          <a href="#" class="ml-1"><%= t '.offer_msg' %></a>
         </div>
-        <!-- *** Top Bar End *** -->
+        <div class="col-lg-6 text-end text-lg-right">
+          <ul class="menu list-inline mb-0">
+            <% if user_signed_in? %>
+              <li class="list-inline-item"><%= t '.welcome' %>, <%= current_user.name %></li>
+              <li class="list-inline-item"><%= link_to (t '.logout'), destroy_user_session_path, method: :delete %></li>
+            <% else %>
+              <li class="list-inline-item"><%= link_to (t '.sing_up'), new_user_registration_path %></li>
+              <li class="list-inline-item"><%= link_to (t '.login'), new_user_session_path %></li>
+            <% end %>
+            <li class="list-inline-item"><%= link_to (t '.contact'), pages_contact_path %></li>
+            <li class="list-inline-item"><%= link_to (t '.account'), edit_user_registration_path %></li>
+          </ul>
+        </div>
       </div>
+    </div>
+    <!-- *** Top Bar End *** -->
+  </div>
 
-      <!-- *** Navigavtion Bar *** -->
-      <nav class="navbar navbar-expand-lg">
-        <div class="container">
-          <%= link_to "BoOkStoRE", pages_home_path, class: "navbar-brand" %>
-          <%# <a class="navbar-brand" href="index.html">BoOkStoRE</a> %>
-          <button
+  <!-- *** Navigavtion Bar *** -->
+  <nav class="navbar navbar-expand-lg">
+    <div class="container">
+      <%= link_to "BoOkStoRE", pages_home_path, class: "navbar-brand" %>
+      <%# <a class="navbar-brand" href="index.html">BoOkStoRE</a> %>
+      <button
             class="navbar-toggler"
             type="button"
             data-bs-toggle="collapse"
             data-bs-target="#navbarContent"
           >
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <a href="#" class="btn btn-outline-secondary navbar-toggler"
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <a href="#" class="btn btn-outline-secondary navbar-toggler"
             ><i class="fa fa-shopping-cart"></i
           ></a>
 
-          <div class="collapse navbar-collapse" id="navbarContent">
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-              <li class="nav-item">
-                <%= link_to "Home", pages_home_path, class: "nav-link" %>
-                <%# <a href="index.html" class="nav-link">Home</a> %>
-              </li>
-              <li class="nav-item">
-                <%= link_to "Books", books_path, class: "nav-link" %>
-                <%# <a href="list.html" class="nav-link">Books</a> %>
-              </li>
-              <li class="nav-item">
-                <%= link_to "About", pages_about_path, class: "nav-link" %>
-                <%# <a href="about_us.html" class="nav-link">About Us</a> %>
-              </li>
-            </ul>
-          </div>
-          <div class="navbar-buttons d-flex justify-content-end">
-            <div id="search">
-              <form role="search" class="me-3">
-                <div class="input-group">
-                  <input
+      <div class="collapse navbar-collapse" id="navbarContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <%= link_to (t '.home'), pages_home_path, class: "nav-link" %>
+          </li>
+          <li class="nav-item">
+            <%= link_to (t '.books'), books_path, class: "nav-link" %>
+          </li>
+          <li class="nav-item">
+            <%= link_to (t '.about'), pages_about_path, class: "nav-link" %>
+          </li>
+        </ul>
+      </div>
+      <div class="navbar-buttons d-flex justify-content-end">
+        <div id="search">
+          <form role="search" class="me-3">
+            <div class="input-group">
+              <input
                     type="text"
-                    placeholder="Search"
+                    placeholder=<%= t '.search' %>
                     class="form-control"
                   />
                   <button type="button" class="btn btn-primary">
@@ -77,25 +74,25 @@
               <% if user_signed_in? %>
                 <%= link_to wishlists_path, class: "btn btn-primary navbar-btn" do %>
                   <i class="fa fa-heart"></i>
-                <% end %>
-              <% else %>
-                <%= link_to user_session_path, class: "btn btn-primary navbar-btn" do %>
-                  <i class="fa fa-heart"></i>
-                <% end %>
-              <% end %>
-            </div>
-            <div id="basket-overview">
-              <% if user_signed_in? %>
-                <%= link_to carts_path, class: "btn btn-primary navbar-btn" do %>
-                  <i class="fa fa-shopping-cart"></i>
-                <% end %>
-              <% else %>
-                <%= link_to user_session_path, class: "btn btn-primary navbar-btn" do %>
-                  <i class="fa fa-shopping-cart"></i>
-                <% end %>
-              <% end %>
-            </div>
-          </div>
+            <% end %>
+          <% else %>
+            <%= link_to user_session_path, class: "btn btn-primary navbar-btn" do %>
+              <i class="fa fa-heart"></i>
+            <% end %>
+          <% end %>
         </div>
-      </nav>
-    </header>
+        <div id="basket-overview">
+          <% if user_signed_in? %>
+            <%= link_to carts_path, class: "btn btn-primary navbar-btn" do %>
+              <i class="fa fa-shopping-cart"></i>
+            <% end %>
+          <% else %>
+            <%= link_to user_session_path, class: "btn btn-primary navbar-btn" do %>
+              <i class="fa fa-shopping-cart"></i>
+            <% end %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </nav>
+</header>

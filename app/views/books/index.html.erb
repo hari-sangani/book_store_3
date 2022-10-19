@@ -17,24 +17,24 @@
                     <%= link_to image_tag(book.image, class: "card-img-top"), book_path(book.id) if book.image.attached? %>
                     <div class="card-body">
                       <h5 class="card-title"><%= book.title %></h5>
-                      <p class="card-text author-name">by
+                      <p class="card-text author-name"><%= t '.by' %>
                         <% book.authors.each do | author | %>
                           <%= author.name %>
                         <% end %>
                       </p>
                       <p class="card-text price">₹<%= book.price %></p>
                       <div class="pb-2">
-                        <%= link_to "View Details", book_path(book.id), class: "btn btn1" %>
+                        <%= link_to (t '.view'), book_path(book.id), class: "btn btn1" %>
                       </div>
                       <% if user_signed_in? %>
                         <%= link_to carts_path(cart: {user_id: current_user.id, book_id: book.id}),
                                     method: :post,
                                     class: "btn btn-primary navbar-btn" do %>
-                          <i class="fa fa-shopping-cart"></i> Add to Cart
+                          <i class="fa fa-shopping-cart"></i> <%= t '.cart' %>
                         <% end %>
                       <% else %>
                         <%= link_to user_session_path, class: "btn btn-primary navbar-btn" do %>
-                          <i class="fa fa-shopping-cart"></i> Add to Cart
+                          <i class="fa fa-shopping-cart"></i> <%= t '.cart' %>
                         <% end %>
                       <% end %>
                     </div>

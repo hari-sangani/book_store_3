@@ -6,7 +6,7 @@
     <div class="card-body">
       <ul class="nav nav-pills flex-column category-menu">
         <li>
-          <h3>Genre</h3>
+          <h3><%= t '.genre' %></h3>
           <%# <a href="#" class="nav-link active">Genre</a> %>
           <ul class="list-unstyled">
             <% Category.all.each do | category | %>
@@ -15,7 +15,7 @@
           </ul>
         </li>
         <li>
-          <h3>Author</h3>
+          <h3><%= t '.author' %></h3>
           <ul class="list-unstyled">
             <% Author.all.each do | author | %>
               <li><%= link_to author.name, author_path(author.id), class: "nav-link" %></li>
@@ -23,7 +23,7 @@
           </ul>
         </li>
         <li>
-          <h3>Publisher</h3>
+          <h3><%= t '.publisher' %></h3>
           <ul class="list-unstyled">
             <% Publisher.all.each do | publisher | %>
               <li><%= link_to publisher.name, publisher_path(publisher.id), class: "nav-link" %></li>
@@ -31,11 +31,11 @@
           </ul>
         </li>
         <li>
-          <h3>Price</h3>
+          <h3><%= t '.price' %></h3>
           <ul class="list-unstyled">
             <li>
-              <%# <%= link_to "Under ₹100", books_path() %>
-              <a href="#" class="nav-link"> Under ₹100</a>
+              <%= link_to "Under ₹100", books_path(price: 200), class: "nav-link" %>
+              <%# <a href="#" class="nav-link"> Under ₹100</a> %>
             </li>
             <li>
               <a href="#" class="nav-link"> ₹100 - ₹200</a>
@@ -52,7 +52,7 @@
           </ul>
         </li>
         <li>
-          <h3>Language</h3>
+          <h3><%= t '.language' %></h3>
           <ul class="list-unstyled">
             <li>
               <%= link_to "English", books_path(language: "English"), class: "nav-link" %>

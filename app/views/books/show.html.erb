@@ -17,7 +17,7 @@
             <div class="col-lg-6">
               <div class="box text-center">
                 <h1 class="book_title"><%= @book.title %></h1>
-                <p class="author_name fs-6">by
+                <p class="author_name fs-6"><%= t '.by' %>
                   <% @book.authors.each do | author | %>
                     <%= author.name %>
                   <% end %>
@@ -28,18 +28,18 @@
                     <%= link_to carts_path(cart: {user_id: current_user.id, book_id: @book.id}),
                                 method: :post,
                                 class: "btn btn-primary navbar-btn" do %>
-                      <i class="fa fa-shopping-cart"></i> Add to Cart
+                      <i class="fa fa-shopping-cart"></i> <%= t '.cart' %>
                     <% end %>
                     <%= link_to wishlists_path(wishlist: {user_id: current_user.id, book_id: @book.id}),
                                 method: :post,
                                 class: "btn btn-outline-primary" do %>
-                      <i class="fa fa-heart"></i> Add to wishlist
+                      <i class="fa fa-heart"></i> <%= t '.wishlist' %>
                     <% end %>
                   <% else %><%= link_to user_session_path, class: "btn btn-primary" do %>
-                      <i class="fa fa-shopping-cart"></i> Add to cart
+                      <i class="fa fa-shopping-cart"></i> <%= t '.cart' %>
                     <% end %>
                     <%= link_to user_session_path, class: "btn btn-outline-primary" do %>
-                      <i class="fa fa-heart"></i> Add to wishlist
+                      <i class="fa fa-heart"></i> <%= t '.wishlist' %>
                     <% end %>
                   <% end %>
                 </p>
@@ -48,7 +48,7 @@
           </div>
 
           <div id="details" class="box">
-            <h4>About the Author</h4>
+            <h4><%= t '.about_author' %></h4>
             <p>
               Lorem ipsum dolor sit amet consectetur adipisicing elit.
               Eveniet ab, non autem sit nostrum quibusdam. Quo, sit ex ea
@@ -60,18 +60,18 @@
             </p>
             <hr />
 
-            <h4>Product details</h4>
+            <h4><%= t '.product_details' %></h4>
             <ul>
-              <li><strong>Publisher : </strong><%= @book.publisher.name %></li>
-              <li><strong>Published Date : </strong><%= @book.publish_date %></li>
-              <li><strong>Language : </strong><%= @book.language %></li>
-              <li><strong>Paperback : </strong><%= @book.paperback %></li>
+              <li><strong><%= t '.publisher' %> : </strong><%= @book.publisher.name %></li>
+              <li><strong><%= t '.published_date' %> : </strong><%= @book.publish_date %></li>
+              <li><strong><%= t '.language' %> : </strong><%= @book.language %></li>
+              <li><strong><%= t '.paperback' %> : </strong><%= @book.paperback %></li>
               <li><strong>ISBN No. : </strong><%= @book.isbndb %></li>
             </ul>
           </div>
 
           <div id="review" class="box">
-            <h4>Product Review</h4>
+            <h4><%= t '.product_review' %></h4>
             <hr />
             <div class="review_container">
               <div class="d-flex flex-row mb-1">
