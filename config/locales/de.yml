@@ -18,6 +18,9 @@ de:
       wishlist: "Wunschliste hinzufügen"
       by: "durch"
   layouts:
+    show_book:
+      view: "Einzelheiten anzeigen"
+      by: "durch"
     panel:
       genre: "Genre"
       author: "Autor"

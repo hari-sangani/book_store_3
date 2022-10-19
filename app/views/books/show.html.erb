@@ -25,21 +25,22 @@
                 <p class="price">₹<%= @book.price %></p>
                 <p class="buttons">
                   <% if user_signed_in? %>
+                    <%= link_to wishlists_path(wishlist: {user_id: current_user.id, book_id: @book.id}),
+                                method: :post,
+                                class: "btn btn-outline-primary" do %>
+                      <i class="fa fa-heart"></i><%= t '.wishlist' %>
+                    <% end %>
                     <%= link_to carts_path(cart: {user_id: current_user.id, book_id: @book.id}),
                                 method: :post,
                                 class: "btn btn-primary navbar-btn" do %>
                       <i class="fa fa-shopping-cart"></i> <%= t '.cart' %>
                     <% end %>
-                    <%= link_to wishlists_path(wishlist: {user_id: current_user.id, book_id: @book.id}),
-                                method: :post,
-                                class: "btn btn-outline-primary" do %>
-                      <i class="fa fa-heart"></i> <%= t '.wishlist' %>
-                    <% end %>
-                  <% else %><%= link_to user_session_path, class: "btn btn-primary" do %>
-                      <i class="fa fa-shopping-cart"></i> <%= t '.cart' %>
-                    <% end %>
+                  <% else %>
                     <%= link_to user_session_path, class: "btn btn-outline-primary" do %>
-                      <i class="fa fa-heart"></i> <%= t '.wishlist' %>
+                      <i class="fa fa-heart"></i><%= t '.wishlist' %>
+                    <% end %>
+                    <%= link_to user_session_path, class: "btn btn-primary" do %>
+                      <i class="fa fa-shopping-cart"></i> <%= t '.cart' %>
                     <% end %>
                   <% end %>
                 </p>
