@@ -5,6 +5,14 @@ class BooksController < ApplicationController
   def index
     if params.has_key?(:language)
       @pagy, @books = pagy(Book.where(language: params[:language]), items: 9)
+    elsif params.has_key?(:min) && params.has_key?(:max)
+      @pagy, @books = pagy(Book.between_range(params[:min], params[:max]), items: 9)
+    elsif params.has_key?(:publisher)
+      @pagy, @books = pagy(Book.show_publisher(params[:publisher]), items: 9)
+    elsif params.has_key?(:category)
+      @pagy, @books = pagy(Book.show_category(params[:category]), items: 9)
+    elsif params.has_key?(:author)
+      @pagy, @books = pagy(Book.show_author(params[:author]), items: 9)
     else
       @pagy, @books = pagy(Book.all, items: 9)
     end
