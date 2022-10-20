@@ -13,6 +13,6 @@ class User < ApplicationRecord
   after_create :send_email
 
   def send_email
-    UserMailer.with(user: self).welcome_email.deliver_now
+    UserMailer.with(user: self).welcome_email.deliver_later(wait: 10.seconds)
   end
 end

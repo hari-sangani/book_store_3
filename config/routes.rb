@@ -1,3 +1,5 @@
+require 'sidekiq/web'
+
 Rails.application.routes.draw do
   get 'pages/home'
   get 'pages/about'
@@ -16,4 +18,7 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   root 'pages#home'
+
+  # mount Sidekiq::Web in your Rails app
+  mount Sidekiq::Web => '/sidekiq'
 end
