@@ -66,6 +66,10 @@ gem "sidekiq", "~> 6.5"
 
 gem 'active_storage_silent_logs', group: :development
 
+gem "haml-rails"
+
+gem "html2haml"
+
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
   gem "debug", platforms: %i[ mri mingw x64_mingw ]
