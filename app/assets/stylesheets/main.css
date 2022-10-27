@@ -452,7 +452,7 @@ button i.fa {
 }
 
 #content #checkout .table tbody tr td,
-#content #basket .table tbody tr td,
+#content #table tbody tr td,
 #content #customer-order .table tbody tr td {
   vertical-align: middle;
 }

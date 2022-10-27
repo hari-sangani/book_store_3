@@ -1,13 +1,13 @@
 %html
-%head
-%title BookStore3
-%meta{:content => "width=device-width,initial-scale=1", :name => "viewport"}/
-= csrf_meta_tags
-= csp_meta_tag
-= favicon_link_tag asset_path('favicon.ico')
-= stylesheet_link_tag "application", "data-turbo-track": "reload", defer: true
-%body
-= render "layouts/header"
-= yield
-= render "layouts/footer"
-= javascript_include_tag "application", "data-turbo-track": "reload"
+  %head
+    %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
+    %title BookStore3
+    %meta{:content => "width=device-width,initial-scale=1", :name => "viewport"}/
+    = csrf_meta_tags
+    = csp_meta_tag
+    = stylesheet_link_tag "application", "data-turbo-track": "reload"
+  %body
+    = render "layouts/header"
+    = yield
+    = render "layouts/footer"
+    = javascript_include_tag "application", "data-turbo-track": "reload"

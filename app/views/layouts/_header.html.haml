@@ -11,7 +11,7 @@
               - if user_signed_in?
                 %li.list-inline-item
                   = t '.welcome'
-                  , #{current_user.name}
+                  #{current_user.name}
                 %li.list-inline-item= link_to (t '.logout'), destroy_user_session_path, method: :delete
               - else
                 %li.list-inline-item= link_to (t '.sign_up'), new_user_registration_path
@@ -35,7 +35,7 @@
               = link_to (t '.books'), books_path, class: "nav-link"
             %li.nav-item
               = link_to (t '.about'), pages_about_path, class: "nav-link"
-        .navbar-buttons.d-flex.justify-content-end
+        .navbar-buttons.d-flex.justify-content-end.text-center
           #search
             = form_with url: books_path, method: :get, class: "me-3" do |form|
               .input-group

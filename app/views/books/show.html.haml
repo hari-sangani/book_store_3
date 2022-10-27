@@ -23,7 +23,7 @@
                   - if user_signed_in?
                     = link_to wishlists_path(wishlist: {user_id: current_user.id, book_id: @book.id}), |
                       method: :post,                                                                   |
-                      class: "btn btn-outline-primary" do                                              |
+                      class: "btn btn-outline-primary me-2" do                                              |
                       %i.fa.fa-heart
                       = t '.wishlist'
                     = link_to carts_path(cart: {user_id: current_user.id, book_id: @book.id}), |
@@ -87,4 +87,3 @@
                 = image_tag "avatar2.png", :class => "review_img"
                 %h5.py-2.ms-2 Ipsum Romm
               %p It's awesome, and I'm happy that I read it.
-    / *** id="content" end ***

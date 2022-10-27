@@ -32,7 +32,7 @@ en:
       home: "Home"
       books: "Books"
       about: "About"
-      welcome: "Welcome"
+      welcome: "Welcome,"
       logout: "Logout"
       sign_up: "Sign Up"
       login: "Login"
