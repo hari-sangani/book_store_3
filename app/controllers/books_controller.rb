@@ -13,6 +13,8 @@ class BooksController < ApplicationController
       @pagy, @books = pagy(Book.show_category(params[:category]), items: 9)
     elsif params.has_key?(:author)
       @pagy, @books = pagy(Book.show_author(params[:author]), items: 9)
+    elsif params.has_key?(:query)
+      @pagy, @books = pagy(Book.where('title LIKE ?', '%' + params[:query] + '%'), items: 9)
     else
       @pagy, @books = pagy(Book.all, items: 9)
     end
