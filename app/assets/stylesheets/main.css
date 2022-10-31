@@ -44,6 +44,10 @@ button i.fa {
   border-radius: 50%;
 }
 
+#search form {
+  margin-block-end: 0em !important;
+}
+
 /*
 *
 * ======================================================================

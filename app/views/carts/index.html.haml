@@ -4,10 +4,11 @@
       .row
         #basket.col-lg-9
           .box
+            -# = form_with(model: orders) do | form |
             %h1 Shopping cart
             - if !@user_cart.empty?
               %p.text-muted
-                You currently have #{@user_cart.count} item(s) in your cart.
+                You currently have #{pluralize @user_cart.count, 'item'} in your cart.
               .table-responsive
                 %table.table
                   %thead

@@ -13,7 +13,7 @@ class Book < ApplicationRecord
   validates :mrp, :discount, :price, numericality: { greater_than: 0 }
 
   scope :between_range, ->(min, max) { where('price >= ? AND price <= ?', min, max) }
-  scope :show_publisher, ->(publisher) { joins(:publisher).where(' name = ?', publisher) }
+  scope :show_publisher, ->(publisher) { joins(:publisher).where('name = ?', publisher) }
   scope :show_category, ->(category) { joins(:categories).where('categories.name = ?', category) }
   scope :show_author, ->(author) { joins(:authors).where('authors.name = ?', author) }
 end
