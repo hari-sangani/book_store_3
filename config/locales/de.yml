@@ -40,3 +40,7 @@ de:
       account: "Konto"
       offer: "Angebot des Tages"
       offer_msg: "Erhalten Sie pauschal 30% Rabatt"
+  pages:
+    home:
+      view: "Einzelheiten anzeigen"
+      cart: "In den Warenkorb"

@@ -73,16 +73,16 @@
                     %p.card-text.price
                       ₹#{book.price}
                     .pb-2
-                      = link_to "View Details", book_path(book.id), class: "btn btn1"
+                      = link_to (t ".view"), book_path(book.id), class: "btn btn1"
                     - if user_signed_in?
                       = link_to carts_path(cart: {user_id: current_user.id, book_id: book.id}), |
                         method: :post,                                                          |
                         class: "btn btn-primary navbar-btn" do                                  |
                         %i.fa.fa-shopping-cart
-                        Add to Cart
+                        = t ".cart"
                     - else
                       = link_to user_session_path, class: "btn btn-primary navbar-btn" do
                         %i.fa.fa-shopping-cart
-                        Add to Cart
+                        = t ".cart"
           / HOT PRODUCT SHLDESHOW END
       / *** id="content" end ***

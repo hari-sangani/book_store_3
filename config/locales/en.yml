@@ -40,3 +40,7 @@ en:
       account: "Account"
       offer: "Offer of the Day"
       offer_msg: "Get flat 30% off"
+  pages:
+    home:
+      view: "View Deatils"
+      cart: "Add To Cart"
