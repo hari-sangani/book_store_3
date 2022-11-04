@@ -4,55 +4,57 @@
       .row
         #basket.col-lg-9
           .box
-            -# = form_with(model: orders) do | form |
-            %h1 Shopping cart
-            - if !@user_cart.empty?
-              %p.text-muted
-                You currently have #{pluralize @user_cart.count, 'item'} in your cart.
-              .table-responsive
-                %table.table
-                  %thead
-                    %tr
-                      %hr.mb-0/
-                      %th{:colspan => "2"} Product
-                      %th Quantity
-                      %th Unit price
-                      %th{:colspan => "2"} Total
-                  %tbody
-                    - @user_cart.each do | item |
-                      %tr.trow
-                        %td
-                          = link_to image_tag(item.book.image), book_path(item.book.id) if item.book.image.attached?
-                        %td
-                          = link_to item.book.title, book_path(item.book.id)
-                        %td
-                          %input{:name => "quantity", :type => "number", :value => item.quantity, :min => "1", :class =>"form-control quantity" }
-                        %td
-                          ₹
-                          %span.price= item.book.price
-                        %td
-                          ₹
-                          %span.total= item.book.price * item.quantity
-                        %td
-                          = link_to cart_path(item.id), method: :delete do
-                            %i.fa.fa-trash-o.ps-4
-                  %tfoot
-                    %tr
-                      %th{:colspan => "4"} Sub-Total
-                      %th{:colspan => "2"}
-                        ₹#{@user_cart.map(&:total_price).sum}
-              / /.table-responsive
-              .box-footer.d-flex.justify-content-between.flex-column.flex-lg-row
-                .left
-                  = link_to books_path, class: "btn btn-outline-secondary" do
-                    %i.fa.fa-chevron-left
-                    Continue shopping
-                .right
-                  %button.btn.btn-primary{:type => "submit"}
-                    Place Order
-            - else
-              %hr/
-              %h3.mt-5 Cart is empty!
+            = form_with(url: "/orders") do | form |
+              %h1 Shopping cart
+              - if !@user_cart.empty?
+                %p.text-muted
+                  You currently have #{pluralize @user_cart.count, 'item'} in your cart.
+                .table-responsive
+                  %table.table
+                    %thead
+                      %tr
+                        %hr.mb-0/
+                        %th{:colspan => "2"} Product
+                        %th Quantity
+                        %th Unit price
+                        %th{:colspan => "2"} Total
+                    %tbody
+                      - @user_cart.each do | item |
+                        %tr
+                          = form.hidden_field :user_id, value: current_user.id
+                          = form.hidden_field :date, value: Date.today
+                          = form.hidden_field :status, value: "Order Placed"
+                          = form.hidden_field :active, value: 1
+                          %td
+                            = link_to image_tag(item.book.image), book_path(item.book.id) if item.book.image.attached?
+                          %td
+                            = link_to item.book.title, book_path(item.book.id)
+                          %td
+                            %input{:name => "quantity", :type => "number", :value => item.quantity, :min => "1", :class =>"form-control quantity", :id => "#{item.id}" }
+                          %td
+                            ₹
+                            %span.price{:id => "#{item.id}"}= item.book.price
+                          %td
+                            ₹
+                            %span.total{:id => "#{item.id}"}= item.book.price * item.quantity
+                          %td
+                            = link_to cart_path(item.id), method: :delete do
+                              %i.fa.fa-trash-o.ps-4
+                    %tfoot
+                      %tr
+                        %th{:colspan => "4"} Sub-Total
+                        %th{:colspan => "2"}
+                          ₹#{@user_cart.map(&:total_price).sum}
+                .box-footer.d-flex.justify-content-between.flex-column.flex-lg-row
+                  .left
+                    = link_to books_path, class: "btn btn-outline-secondary" do
+                      %i.fa.fa-chevron-left
+                      Continue shopping
+                  .right
+                    = form.submit "Place Order", :class => "btn btn-primary"
+              - else
+                %hr/
+                %h3.mt-5 Cart is empty!
         .col-lg-3
           #order-summary.box
             .box-header

@@ -21,37 +21,14 @@
                   %tr
                     %th Order
                     %th Date
-                    %th Total
-                    %th Status
+                    %th{:colspan => "2"} Status
                 %tbody
-                  %tr
-                    %th # 1735
-                    %td 22/06/2022
-                    %td $ 18.00
-                    %td
-                      %span.badge.text-bg-info Being prepared
-                  %tr
-                    %th # 1735
-                    %td 22/06/2022
-                    %td $ 18.00
-                    %td
-                      %span.badge.text-bg-info Being prepared
-                  %tr
-                    %th # 1735
-                    %td 22/06/2022
-                    %td $ 18.00
-                    %td
-                      %span.badge.text-bg-success Received
-                  %tr
-                    %th # 1735
-                    %td 22/06/2022
-                    %td $ 18.00
-                    %td
-                      %span.badge.text-bg-danger Cancelled
-                  %tr
-                    %th # 1735
-                    %td 22/06/2022
-                    %td $ 18.00
-                    %td
-                      %span.badge.text-bg-warning On hold
-    / *** id="content" end ***
+                  - @orders.each do | order |
+                    %tr
+                      %th
+                        = order.id
+                      %td
+                        = order.date
+                      %td
+                        %span.badge.bg-primary
+                          = order.status
